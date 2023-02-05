@@ -6,7 +6,7 @@ public class CreditsInfo : MonoBehaviour
 {
     public enum ROLES { Programmers, Artists, Music, Writers };
 
-    public static string[] programmers = new string[] { "Leonard", "Matt", "James", "Chris Draheim" };
+    public static string[] programmers = new string[] { "Leonard", "Matt", "James Witten", "Chris Draheim" };
     public static string[] artists = new string[] { "Bianca", "Thanh-Mai" };
     public static string[] music = new string[] { };
     public static string[] writers = new string[] { "Zack" };
