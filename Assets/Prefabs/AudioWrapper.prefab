@@ -597,11 +597,11 @@ MonoBehaviour:
   volumeTime: 6
   TargetDB: 10
   ExposedVolumeLayers:
-  - VolumeSad
   - VolumeHappyBase
   - VolumeHappyL1
   - VolumeHappyL2
   - VolumeHappyL3
+  - VolumeSad
 --- !u!1 &1156677702532450190
 GameObject:
   m_ObjectHideFlags: 0
