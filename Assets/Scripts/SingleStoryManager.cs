@@ -11,4 +11,11 @@ public class SingleStoryManager : MonoBehaviour
     {
         // start processes
     }
+
+    public void Switcher()
+
+    {
+        ActionObjects[0].SetActive(false);
+        ActionObjects[1].SetActive(true);
+    }
 }

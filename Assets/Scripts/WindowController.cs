@@ -9,13 +9,9 @@ public class WindowController : MonoBehaviour
 
     public int HitCounter = 0;
     public List<WindowColliders> colliders = new List<WindowColliders>();
+    public SingleStoryManager ssmanager;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+ 
 
     // Update is called once per frame
     void Update()
@@ -28,7 +24,7 @@ public class WindowController : MonoBehaviour
 
         if(HitCounter == colliders.Count)
         {
-            // hit all the colliders
+            ssmanager.Switcher();
             state = WindowState.happy;
         }
     }
