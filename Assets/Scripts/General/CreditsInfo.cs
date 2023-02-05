@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CreditsInfo : MonoBehaviour
 {
-    public enum ROLES { Programmers, Artists, Music, Writers };
+    public enum ROLES { Programmers, Artists, MusicAndAudio, Writers };
 
     public static string[] programmers = null;
     public static string[] artists = null;
@@ -44,7 +44,7 @@ public class CreditsInfo : MonoBehaviour
             case (ROLES.Programmers): {
                     return programmers;
                 }
-            case (ROLES.Music): {
+            case (ROLES.MusicAndAudio): {
                     return music;
                 }
             case (ROLES.Writers): {
