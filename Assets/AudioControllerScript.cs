@@ -9,6 +9,7 @@ public class AudioControllerScript : MonoBehaviour
 
    public AudioMixer _MainMixer;
     public float volumeTime = 6.0f;
+    public float TargetDB = 10.0f;
 
 
     private int currentLayer = -1;
@@ -16,9 +17,9 @@ public class AudioControllerScript : MonoBehaviour
     public string[] ExposedVolumeLayers;
 
 
-            
-    
-
+    /// <summary>
+    /// used to Iterate through volumes
+    /// </summary>
     public void PlayNewLayer()
     {
 
@@ -59,18 +60,23 @@ public class AudioControllerScript : MonoBehaviour
 
     }
 
-
+    /// <summary>
+    /// Turn on a specific audio layer to a target DB 
+    /// </summary>
+    /// <param name="myAudioLayer"></param>
+    /// <returns></returns>
     public IEnumerator TurnOnAudioLayer(string myAudioLayer)
     {
         float myVolume = 0.0f;
-        while(myVolume <= 1.0f)
+        _MainMixer.GetFloat(myAudioLayer, out myVolume);
+        float tickRate = TargetDB / (volumeTime / 100.0f); 
+
+        while (myVolume <= TargetDB)
         {
-            myVolume += volumeTime / 100.0f;
+            myVolume += tickRate;
             _MainMixer.SetFloat(myAudioLayer, myVolume);
-            yield return new WaitForSecondsRealtime(volumeTime / 100.0f);
+            yield return new WaitForSecondsRealtime(tickRate);
         }
-
-
 
     }
     /// <summary>

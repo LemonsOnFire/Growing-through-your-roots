@@ -88,6 +88,8 @@ AudioMixerController:
     name: VolumeHappy
   - guid: 225d4ed4d46ec4d47ae01e2654b8b235
     name: _VolumeSad
+  - guid: b038daa49ecfa0a4a87c7d6c68f45a71
+    name: MyExposedParam
   m_AudioMixerGroupViews:
   - guids:
     - f7d82e39fdef00f47aa2a4194a49be9f
