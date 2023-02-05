@@ -168,20 +168,16 @@ public class PlantController : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void PowerUp()
     {
 
-        if (collision.CompareTag("PowerUps"))
-        {
+        
 
             Debug.Log("Power UP!!");
             StopCoroutine("TriggerPowerUp");
             StartCoroutine("TriggerPowerUp");
 
-            collision.gameObject.SetActive(false);
-        }
-
-
+      
     }
 
     IEnumerator TriggerPowerUp()
@@ -190,9 +186,10 @@ public class PlantController : MonoBehaviour
 
         PowerTime += PowerLengthTime;
         GrowthRate = .25f;
-        
-        yield return new WaitForSeconds(PowerTime);
+        print(PowerTime);
 
+        yield return new WaitForSeconds(PowerTime);
+        
         GrowthRate = .5f;
     }
 }
