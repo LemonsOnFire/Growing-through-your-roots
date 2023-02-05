@@ -194,7 +194,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3622351161810196167, guid: 7da1f5d1b3c985a478784aca217e7079, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.83
+      value: 55.46
       objectReference: {fileID: 0}
     - target: {fileID: 3622351161810196167, guid: 7da1f5d1b3c985a478784aca217e7079, type: 3}
       propertyPath: m_LocalPosition.z
@@ -296,34 +296,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1156677702491073435, guid: 47689dbae9c4a11449ab2aeb7789961b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 397849899}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47689dbae9c4a11449ab2aeb7789961b, type: 3}
---- !u!1 &397849898 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1156677702491073435, guid: 47689dbae9c4a11449ab2aeb7789961b, type: 3}
-  m_PrefabInstance: {fileID: 397849897}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &397849899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 397849898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88d135987b047b74db89ce754f55debf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _MainMixer: {fileID: 24100000, guid: bd729ee3f81bb3d41931d33cd8bb7240, type: 2}
-  volumeTime: 6
-  ExposedVolumeLayers:
-  - VolumeBase
-  - VolumeSad
-  - VolumeHappy
 --- !u!1 &488450202
 GameObject:
   m_ObjectHideFlags: 0
