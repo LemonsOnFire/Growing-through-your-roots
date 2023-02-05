@@ -15,15 +15,13 @@ public class MenuLogic : MonoBehaviour {
     // Use this for initialization
     void Start () {
         TITLE_INDEX = Mathf.RoundToInt(UnityEngine.Random.Range(0f, ((float)GAME_TITLE_ARR.Length)));
+        if (TITLE_INDEX >= Mathf.Min(GAME_TITLE_ARR.Length, GAME_TITLE_OFFSET_ARR.Length)) {
+            TITLE_INDEX = 0;
+        }
     }
 	
 	// Update is called once per frame
 	void Update () {
-    }
-
-    private void ShowCredits() {
-        string[] credits = new string[] { "Bianca", "Thanh-Mai", "Leonard", "Matt", "James", "Chris Draheim" };
-        GetComponent<GameInfo>().ShowInfo(credits, (Screen.width / 2) - 40, (Screen.height / 5) + 100, 20);
     }
 
     private string GetMenuTitle() {
@@ -31,12 +29,8 @@ public class MenuLogic : MonoBehaviour {
         if (currentMenu == MenuForm.CREDITS) {
             return "Credits";
         }
-        
-        try {
-            return GAME_TITLE_ARR[TITLE_INDEX];
-        } catch(Exception e) { }
 
-        return GAME_TITLE_ARR[0];
+        return GAME_TITLE_ARR[TITLE_INDEX];
     }
 
     private void LoadScene(string scene) {
@@ -50,7 +44,7 @@ public class MenuLogic : MonoBehaviour {
         float buttonX = (Screen.width / 2) - 90;
         float buttonY = boxY + 100;
 
-        GUI.Box(new Rect(boxX, boxY, 800, 350), "");
+        // GUI.Box(new Rect(boxX, boxY, 800, 350), "");
         GUI.Label(new Rect(buttonX + GAME_TITLE_OFFSET_ARR[TITLE_INDEX], boxY + 50, 200, 30), GetMenuTitle());
 
         if (currentMenu != MenuForm.MAIN_MENU) {
@@ -60,8 +54,8 @@ public class MenuLogic : MonoBehaviour {
         }
 
         if (currentMenu == MenuForm.CREDITS) {
-            ShowCredits();
-			return;
+            GetComponent<CreditsInfo>().ShowCredits();
+            return;
 		}
         
 		if(GUI.Button(new Rect(buttonX, buttonY, 200, 30), "Start")) {
@@ -69,6 +63,9 @@ public class MenuLogic : MonoBehaviour {
         }
 		if(GUI.Button(new Rect(buttonX, buttonY + 50, 200, 30), "Credits")) {
             currentMenu = MenuForm.CREDITS;
+        }
+        if (GUI.Button(new Rect(buttonX + 300, buttonY + 50, 100, 30), "Don't")) {
+            LoadScene("_GameEnding");
         }
 
         if (GUI.Button(new Rect(buttonX, buttonY + 150, 200, 30), "Exit")) {

@@ -5,9 +5,15 @@ using UnityEngine.SceneManagement;
 public class GameLogic : MonoBehaviour {
 
     public static int levelLoaderIndex = 0;
-    
+    public bool GAME_PAUSED = false;
+    public bool GAME_OVER = false;
+
     // Use this for initialization
     void Start () {
+
+        if(gameObject.GetComponent<OverlayControls>() == null) {
+            gameObject.AddComponent<OverlayControls>();
+        }
     }
 	
 	// Update is called once per frame
