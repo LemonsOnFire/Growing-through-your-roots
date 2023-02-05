@@ -7,22 +7,19 @@ public class AudioControllerScript : MonoBehaviour
 {
     // Start is called before the first frame update
 
-   public AudioMixer _MainMixer;
+    public AudioMixer _MainMixer;
     public float volumeTime = 6.0f;
     public float TargetDB = 10.0f;
-
 
     private int currentLayer = -1;
 
     public string[] ExposedVolumeLayers;
-
 
     /// <summary>
     /// used to Iterate through volumes
     /// </summary>
     public void PlayNewLayer()
     {
-
         currentLayer++;
 
         Debug.Log("Starting Aduio # " + currentLayer);
@@ -55,9 +52,11 @@ public class AudioControllerScript : MonoBehaviour
                 break;
 
         }
+    }
 
-
-
+    public void StopFirstAudioLayer()
+    {
+        StartCoroutine(TurnOffAudioLayer(ExposedVolumeLayers[0]));
     }
 
     /// <summary>
@@ -77,14 +76,25 @@ public class AudioControllerScript : MonoBehaviour
             _MainMixer.SetFloat(myAudioLayer, myVolume);
             yield return new WaitForSecondsRealtime(tickRate);
         }
-
     }
     /// <summary>
     /// The coroutine doing a calculation/action over time
     /// </summary>
-   
+
+    public IEnumerator TurnOffAudioLayer(string myAudioLayer)
+    {
+        float myVolume = 0.0f;
+        _MainMixer.GetFloat(myAudioLayer, out myVolume);
+        float tickRate = myVolume / (volumeTime / 100.0f);
+
+        while (myVolume > 0.0f)
+        {
+            myVolume -= tickRate;
+            _MainMixer.SetFloat(myAudioLayer, myVolume);
+            yield return new WaitForSecondsRealtime(tickRate);
+        }
+    }
 
 
 
-   
 }

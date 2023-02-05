@@ -598,8 +598,6 @@ MonoBehaviour:
   TargetDB: 10
   ExposedVolumeLayers:
   - VolumeSad
-  - VolumeHappyAll
-  - VolumeHappyBase
   - VolumeHappyBase
   - VolumeHappyL1
   - VolumeHappyL2
