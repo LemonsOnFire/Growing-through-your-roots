@@ -14,9 +14,9 @@ public class CreditsInfo : MonoBehaviour
 
     private void Awake() {
         programmers = ShiftArrayOrder(new string[] { "Leonard Wedderburn", "Matt Necamp", "James Witten", "Chris Draheim" });
-        artists = ShiftArrayOrder(new string[] { "Bianca", "Thanh-Mai Tran" });
+        artists = ShiftArrayOrder(new string[] { "Bianca Calipo", "Thanh-Mai Tran" });
         music = ShiftArrayOrder(new string[] { "Abe Underhill", "Ken Johnson" });
-        writers = ShiftArrayOrder(new string[] { "Zack" });
+        writers = ShiftArrayOrder(new string[] { "Zack something" });
     }
 
     // Start is called before the first frame update
