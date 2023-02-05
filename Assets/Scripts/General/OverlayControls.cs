@@ -49,8 +49,7 @@ public class OverlayControls : MonoBehaviour {
     }
 
     private void GameOverScreen() {
-
-        // float yPos = (Camera.main.pixelRect.y == 0 && (GameLogic.selectedPlayerCount > 2)) ? playerCam.pixelRect.height : 0;
+        
         Rect posRect = new Rect(Camera.main.pixelRect.x, 0f, Camera.main.pixelRect.width, Camera.main.pixelRect.height);
 
         GUIStyle style = new GUIStyle(GUI.skin.box);

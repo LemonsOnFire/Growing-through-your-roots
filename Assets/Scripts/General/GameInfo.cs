@@ -9,8 +9,9 @@ public class GameInfo : MonoBehaviour
     public bool showInfo = true;
     [Tooltip("Corners: 0)TL 1)TR 2)BL 3)BR")]
     public bool[] showCorner = new bool[] { true, true, true, true };
+    private int[] startIndex = new int[System.Enum.GetNames(typeof(CreditsInfo.ROLES)).Length];
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,15 +46,22 @@ public class GameInfo : MonoBehaviour
 
     public void ShowInfo(string[] info, float xPos, float yPos, int yAdvance, Color c) {
 
-        int ind = 0;
+        int size = info.Length;
+        int ind = size;
+        while (ind >= size) {
+            ind = Mathf.RoundToInt(UnityEngine.Random.Range(0f, (float)size));
+        }
+
+        int yOffset = 0;
+        
 
         foreach(string s in info) {
 
             GUIStyle style = new GUIStyle();
             style.normal.textColor = c;
-
-            GUI.Label(new Rect(xPos, yPos + (ind * yAdvance), 200, 20), s, style);
-            ind++;
+            
+            GUI.Label(new Rect(xPos, yPos + (yOffset * yAdvance), 200, 20), s, style);
+            yOffset++;
         }
     }
 
