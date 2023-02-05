@@ -819,7 +819,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3622351161810196167, guid: 7da1f5d1b3c985a478784aca217e7079, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.4
+      value: 55.6
       objectReference: {fileID: 0}
     - target: {fileID: 3622351161810196167, guid: 7da1f5d1b3c985a478784aca217e7079, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1038,26 +1038,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 997175587658199106, guid: 47689dbae9c4a11449ab2aeb7789961b, type: 3}
-      propertyPath: ExposedVolumeLayers.Array.data[0]
-      value: VolumeHappyBase
-      objectReference: {fileID: 0}
-    - target: {fileID: 997175587658199106, guid: 47689dbae9c4a11449ab2aeb7789961b, type: 3}
-      propertyPath: ExposedVolumeLayers.Array.data[1]
-      value: VolumeHappyL1
-      objectReference: {fileID: 0}
-    - target: {fileID: 997175587658199106, guid: 47689dbae9c4a11449ab2aeb7789961b, type: 3}
-      propertyPath: ExposedVolumeLayers.Array.data[2]
-      value: VolumeHappyL2
-      objectReference: {fileID: 0}
-    - target: {fileID: 997175587658199106, guid: 47689dbae9c4a11449ab2aeb7789961b, type: 3}
-      propertyPath: ExposedVolumeLayers.Array.data[3]
-      value: VolumeHappyL3
-      objectReference: {fileID: 0}
-    - target: {fileID: 997175587658199106, guid: 47689dbae9c4a11449ab2aeb7789961b, type: 3}
-      propertyPath: ExposedVolumeLayers.Array.data[4]
-      value: VolumeSad
-      objectReference: {fileID: 0}
     - target: {fileID: 1156677702491073380, guid: 47689dbae9c4a11449ab2aeb7789961b, type: 3}
       propertyPath: m_RootOrder
       value: 8
