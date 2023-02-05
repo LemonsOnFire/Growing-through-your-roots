@@ -31,34 +31,27 @@ public class AudioControllerScript : MonoBehaviour
                 break;
             case 1:
                 StartCoroutine(TurnOnAudioLayer(ExposedVolumeLayers[1]));
+                StartCoroutine(TurnOffAudioLayer(ExposedVolumeLayers[4]));
                 break;
             case 2:
                 StartCoroutine(TurnOnAudioLayer(ExposedVolumeLayers[2]));
-                StopFirstAudioLayer();
                 break;
             case 3:
                 StartCoroutine(TurnOnAudioLayer(ExposedVolumeLayers[3]));
                 break;
-            case 4:
-               // StartCoroutine(TurnOnAudioLayer(ExposedVolumeLayers[4]));
-                break;
-            case 5:
-              //  StartCoroutine(TurnOnAudioLayer(ExposedVolumeLayers[5]));
-                break;
-            case 6:
-              //  StartCoroutine(TurnOnAudioLayer(ExposedVolumeLayers[6]));
-                break;
-            case 7:
-               // StartCoroutine(TurnOnAudioLayer(ExposedVolumeLayers[7]));
-                break;
-         
-
+            //case 4:
+            //    StartCoroutine(TurnOnAudioLayer(ExposedVolumeLayers[4]));
+            //    break;
+            //case 5:
+            //    StartCoroutine(TurnOnAudioLayer(ExposedVolumeLayers[5]));
+            //    break;
+            //case 6:
+            //    StartCoroutine(TurnOnAudioLayer(ExposedVolumeLayers[6]));
+            //    break;
+            //case 7:
+            //    StartCoroutine(TurnOnAudioLayer(ExposedVolumeLayers[7]));
+            //    break;
         }
-    }
-
-    public void StopFirstAudioLayer()
-    {
-        StartCoroutine(TurnOffAudioLayer(ExposedVolumeLayers[4]));
     }
 
     /// <summary>
@@ -96,7 +89,5 @@ public class AudioControllerScript : MonoBehaviour
             yield return new WaitForSecondsRealtime(tickRate);
         }
     }
-
-
 
 }
