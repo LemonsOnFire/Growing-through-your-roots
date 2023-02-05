@@ -5,7 +5,7 @@ using UnityEngine;
 public class EditorCam : MonoBehaviour {
     
     public static KeyCode CONFIRM_KEY = KeyCode.Mouse0;
-    public static KeyCode PAN_KEY = KeyCode.LeftAlt;
+    public static KeyCode PAN_KEY = KeyCode.LeftShift;
     public static KeyCode ROTATE_KEY = KeyCode.Mouse1;
     public static KeyCode CAMERA_KEY = KeyCode.Mouse2;
     public static string CAMERA_INPUT_X_AXIS = "Mouse X";
@@ -15,7 +15,8 @@ public class EditorCam : MonoBehaviour {
     float turnSpeed = 4f;
     float zoomSpeed = 200f;
     float orthographicZoomSpeed = 1f;
-    public bool freeRotation = true;
+    public bool freePan = false;
+    public bool freeRotation = false;
 
     // Use this for initialization
     void Start() {
@@ -53,14 +54,21 @@ public class EditorCam : MonoBehaviour {
 
             }
 
-        } else if(Input.GetKey(PAN_KEY)) {
-            if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0) {
-                // Pan camera
-                Camera.main.GetComponent<Rigidbody>().velocity = new Vector3(Input.GetAxis("Horizontal") * cameraSpeed, Input.GetAxis("Vertical") * cameraSpeed);
-            }
+        } else if ((freePan || Input.GetKey(PAN_KEY)) && (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)) {
+            // Pan camera
+            Camera.main.GetComponent<Rigidbody>().velocity = new Vector3(Input.GetAxis("Horizontal") * cameraSpeed, Input.GetAxis("Vertical") * cameraSpeed);
         } else {
             // Stop camera movement
             Camera.main.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
         }
+    }
+
+    public static string GetEditorCamControlsInfo() {
+
+        if(GameObjUtils.HasActiveEditorCam()) {
+            return "EditorCam: Hold left shift to pan with W,A,S,D or arrows; scroll mouse wheel to zoom; hold mouse wheel to drag";
+        }
+
+        return "";
     }
 }
