@@ -58,10 +58,11 @@ public class MenuLogic : MonoBehaviour {
 		if(GUI.Button(new Rect(buttonX, buttonY + 50, 200, 30), "Credits")) {
             currentMenu = MenuForm.CREDITS;
         }
+        /*
         if (GUI.Button(new Rect(buttonX + 300, buttonY + 50, 100, 30), "Don't")) {
             LoadScene("_GameEnding");
         }
-
+        */
         if (GUI.Button(new Rect(buttonX, buttonY + 150, 200, 30), "Exit")) {
 			Application.Quit();
         }
