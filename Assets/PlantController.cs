@@ -135,6 +135,7 @@ public class PlantController : MonoBehaviour
 
             Debug.Log("Debug End Game");
             // Put end game trigger here!
+            GameLogic.LoadLevel("_GameEnding");
 
         }
         linerenderer.positionCount++;
