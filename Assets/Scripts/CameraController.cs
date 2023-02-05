@@ -33,7 +33,7 @@ public class CameraController : MonoBehaviour
     {
         if (isZooming)
         {
-            var zoomStep = scrollSpeed * Time.deltaTime;// calculate amount to zoom
+            var zoomStep = zoomSpeed * Time.deltaTime;// calculate amount to zoom
             var cam = GetComponentInParent<Camera>();
 
             cam.orthographicSize = Vector2.MoveTowards( new Vector2( cam.orthographicSize, 0.0f ), new Vector2(endZoomLevel, 0.0f) , zoomStep).x;

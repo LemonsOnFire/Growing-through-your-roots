@@ -71,7 +71,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7.8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -107,11 +107,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5a25a3a7e18f154ebdd792787efc450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startZoomLevel: 5
-  endZoomLevel: 4
+  startZoomLevel: 7.8
+  endZoomLevel: 5.8
   distanceToStartZoom: 1
-  zoomSpeed: 1
-  scrollSpeed: 1.5
+  zoomSpeed: 0.75
+  scrollSpeed: 3
   player: {fileID: 0}
   holdMovementTop: {fileID: 3622351161827646983}
   holdMovementBottom: {fileID: 3622351163744960348}
@@ -140,7 +140,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3622351161827646983}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 2.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -392,7 +392,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3622351163744960348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalPosition: {x: 0, y: -2.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
