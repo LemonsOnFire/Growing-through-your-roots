@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlantController : MonoBehaviour
@@ -8,7 +9,12 @@ public class PlantController : MonoBehaviour
     public LineRenderer linerenderer;
     public float GrowthDistance = 1.0f;
     public float GrowthRate = 1.0f;
+    public float PowerLengthTime = 5.0f;
     private float CoolDown = 0.0f;
+    private float PowerTime = 0.0f;
+    private float PowerRate = 3.0f;
+    private float SetRate = 1.0f;
+
     float Horizontal, verticaleInput;
 
     public GameObject myCollisionHead;
@@ -17,13 +23,14 @@ public class PlantController : MonoBehaviour
 
     public float Distance_X = 0.0f, Distance_Y = 0.0f;
 
-    
+
     public Vector3 LastValues;
 
     // Start is called before the first frame update
     void Start()
     {
         LastValues.y = GrowthDistance;
+        SetRate = GrowthRate;
         if (linerenderer == null) { GetComponent<LineRenderer>(); }
 
         _POSList.Add(linerenderer.GetPosition(0));
@@ -37,6 +44,8 @@ public class PlantController : MonoBehaviour
 
         CoolDown += Time.deltaTime;
 
+        CheckInupt();
+
         if (CoolDown >= GrowthRate)
         {
             CoolDown = 0;
@@ -46,10 +55,20 @@ public class PlantController : MonoBehaviour
 
 
 
-  // Set Values based of input
+
+
+    }
+
+
+    public void CheckInupt()
+    {
+
+
+        // Set Values based of input
 
         // To do change arrow UI based off input. 
-        if (verticaleInput > 0.0f) {
+        if (verticaleInput > 0.0f)
+        {
 
 
             /**
@@ -72,7 +91,7 @@ public class PlantController : MonoBehaviour
             }
             */
 
-            Distance_Y = GrowthDistance; 
+            Distance_Y = GrowthDistance;
         }
 
         if (verticaleInput < 0.0f) { Distance_Y = 0.0f - GrowthDistance; }
@@ -85,14 +104,12 @@ public class PlantController : MonoBehaviour
 
         if (Horizontal == 0.0f) { Distance_X = 0.0f; }
 
-        
-        if(Horizontal == 0.0f && verticaleInput == 0.0f)
+
+        if (Horizontal == 0.0f && verticaleInput == 0.0f)
         {
             Distance_X = LastValues.x;
             Distance_Y = LastValues.y;
         }
-
-      
 
     }
 
@@ -112,13 +129,13 @@ public class PlantController : MonoBehaviour
         LastValues.x = Distance_X;
         LastValues.y = Distance_Y;
 
-       
+
         if (_POSList.Contains(myNewPOS))
         {
 
             Debug.Log("Debug End Game");
             // Put end game trigger here!
-            
+
         }
         linerenderer.positionCount++;
 
@@ -127,18 +144,18 @@ public class PlantController : MonoBehaviour
         _POSList.Add(myNewPOS);
 
         // Add extra midpoint to list if going in diagnol direction
-        if(Distance_X != 0 && Distance_Y != 0)
+        if (Distance_X != 0 && Distance_Y != 0)
         {
             // add new point for daiganols
-            Vector3 Difference = new Vector3( oldPOS.x - myNewPOS.x, oldPOS.y - myNewPOS.y, oldPOS.z - myNewPOS.z);
+            Vector3 Difference = new Vector3(oldPOS.x - myNewPOS.x, oldPOS.y - myNewPOS.y, oldPOS.z - myNewPOS.z);
 
-           // Debug.Log("Caluclating Differences");
+            // Debug.Log("Caluclating Differences");
             _POSList.Add(Difference);
         }
 
 
         // move the collision head
-        if(myCollisionHead != null)
+        if (myCollisionHead != null)
         {
 
             myNewPOS = transform.TransformPoint(myNewPOS);
@@ -147,5 +164,34 @@ public class PlantController : MonoBehaviour
 
         }
 
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.CompareTag("PowerUps"))
+        {
+
+            Debug.Log("Power UP!!");
+            StopCoroutine("TriggerPowerUp");
+            StartCoroutine("TriggerPowerUp");
+
+            collision.gameObject.SetActive(false);
+        }
+
+
+    }
+
+    IEnumerator TriggerPowerUp()
+    {
+      //  Debug.Log("Power UP!!");
+
+        PowerTime += PowerLengthTime;
+        GrowthRate = .25f;
+        
+        yield return new WaitForSeconds(PowerTime);
+
+        GrowthRate = .5f;
     }
 }
