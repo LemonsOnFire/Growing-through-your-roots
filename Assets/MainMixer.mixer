@@ -83,9 +83,15 @@ AudioMixerController:
   m_UpdateMode: 0
   m_ExposedParameters:
   - guid: 837631dfa57d8454bbb3faae67e8998e
-    name: VolumeBase
+    name: VolumeHappyBase
   - guid: f9b3401e219a7174f914bc6b318c9d97
-    name: VolumeHappy
+    name: VolumeHappyAll
+  - guid: 93a898c14b4118445bb34381892d59c0
+    name: VolumeHappyL1
+  - guid: d6074476e0fb3a6468bd155a46903928
+    name: VolumeHappyL2
+  - guid: 067d2d382523a294a8e586e444d7eda6
+    name: VolumeHappyL3
   - guid: 225d4ed4d46ec4d47ae01e2654b8b235
     name: _VolumeSad
   m_AudioMixerGroupViews:

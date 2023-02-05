@@ -108,9 +108,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startZoomLevel: 7.8
-  endZoomLevel: 5.8
-  distanceToStartZoom: 1
-  zoomSpeed: 0.75
+  endZoomLevel: 6.3
+  distanceToStartZoom: 3
+  zoomSpeed: 1
   scrollSpeed: 3
   player: {fileID: 0}
   holdMovementTop: {fileID: 3622351161827646983}

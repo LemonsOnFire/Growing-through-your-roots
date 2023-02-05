@@ -9,10 +9,10 @@ public class PlantController : MonoBehaviour
     public LineRenderer linerenderer;
     public float GrowthDistance = 1.0f;
     public float GrowthRate = 1.0f;
-    public float PowerLengthTime = 5.0f;
-    private float CoolDown = 0.0f;
-    private float PowerTime = 0.0f;
-    private float PowerRate = 3.0f;
+    public float PowerUpRate = 1.0f;
+    public float PowerLengthTime = 5.0f; // time of power up 
+    private float CoolDown = 0.0f; //timer for growing
+    private float PowerTime = 0.0f;  //total stack power time
     private float SetRate = 1.0f;
 
     float Horizontal, verticaleInput;
@@ -185,11 +185,11 @@ public class PlantController : MonoBehaviour
       //  Debug.Log("Power UP!!");
 
         PowerTime += PowerLengthTime;
-        GrowthRate = .25f;
+        GrowthRate = PowerUpRate;
         print(PowerTime);
 
         yield return new WaitForSeconds(PowerTime);
         
-        GrowthRate = .5f;
+        GrowthRate = SetRate;
     }
 }

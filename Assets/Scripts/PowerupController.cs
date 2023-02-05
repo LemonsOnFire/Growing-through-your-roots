@@ -14,6 +14,7 @@ public class PowerupController : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             _PlantConttroler.PowerUp();
+            this.gameObject.SetActive(false);
         }
 
     }

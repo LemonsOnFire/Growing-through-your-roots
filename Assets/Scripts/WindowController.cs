@@ -10,7 +10,7 @@ public class WindowController : MonoBehaviour
     public int HitCounter = 0;
     public List<WindowColliders> colliders = new List<WindowColliders>();
     public SingleStoryManager ssmanager;
-
+    public Animator charAnimator;
  
 
     // Update is called once per frame
@@ -26,6 +26,8 @@ public class WindowController : MonoBehaviour
         {
             ssmanager.Switcher();
             state = WindowState.happy;
+
+            charAnimator.SetTrigger("happy");
         }
     }
 }
