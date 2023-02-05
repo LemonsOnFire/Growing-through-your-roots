@@ -13,9 +13,9 @@ public class CreditsInfo : MonoBehaviour
     public static int START_INDEX = 0;
 
     private void Awake() {
-        programmers = ShiftArrayOrder(new string[] { "Leonard W", "Matt", "James", "Chris Draheim" });
-        artists = ShiftArrayOrder(new string[] { "Bianca", "Thanh-Mai" });
-        music = ShiftArrayOrder(new string[] { "Abe Underhill" });
+        programmers = ShiftArrayOrder(new string[] { "Leonard Wedderburn", "Matt Necamp", "James Witten", "Chris Draheim" });
+        artists = ShiftArrayOrder(new string[] { "Bianca", "Thanh-Mai Tran" });
+        music = ShiftArrayOrder(new string[] { "Abe Underhill", "Ken Johnson" });
         writers = ShiftArrayOrder(new string[] { "Zack" });
     }
 
