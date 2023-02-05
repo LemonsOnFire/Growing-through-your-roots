@@ -50,7 +50,6 @@ public class AudioControllerScript : MonoBehaviour
             case 7:
                 StartCoroutine(TurnOnAudioLayer(ExposedVolumeLayers[7]));
                 break;
-
         }
     }
 
@@ -94,7 +93,5 @@ public class AudioControllerScript : MonoBehaviour
             yield return new WaitForSecondsRealtime(tickRate);
         }
     }
-
-
 
 }
