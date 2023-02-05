@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: enviroment
+    uniqueID: 685010581
+    locked: 0
+  - name: front
+    uniqueID: 1385343353
+    locked: 0
